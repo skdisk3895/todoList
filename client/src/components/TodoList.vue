@@ -3,7 +3,7 @@
     <div class="todo-list" v-for="(list, index) in $store.state.todoList" :key="index" @click="activeList(index)" :ref="'list-'+index" spellcheck="false">
       <input type="text" v-model="$store.state.todoList[index]" :ref="'input_'+index" />
       <button class="delete-btn">
-        <i class="fas fa-trash-alt" @click="deleteList(index)"></i>
+        <i class="fas fa-trash-alt" @click.stop="deleteList(index)"></i>
       </button>
     </div>
   </div>
@@ -32,6 +32,7 @@ export default {
     deleteList: function (index) {
       const idx = this.$store.state.todoList.indexOf(this.$refs[`input_${index}`][0].value);
       this.$store.state.todoList.splice(idx, 1);
+      this.removeActive();
     }
   }
 };
