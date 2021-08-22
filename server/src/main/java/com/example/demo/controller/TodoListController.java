@@ -28,4 +28,16 @@ public class TodoListController {
         // 비즈니스 로직단(Service)으로 넘긴다.
         return todoService.registerTodo(todoDTO);
     }
+
+    // 특정 todo 수정
+    @PutMapping("/update/{id}")
+    public Todo updateTodo(@RequestBody TodoDTO todoDTO, @PathVariable Long id) {
+        return todoService.updateTodo(id, todoDTO.getContent());
+    }
+
+    // 특정 todo 삭제
+    @DeleteMapping("/delete/{id}")
+    public void deleteTodo(@PathVariable Long id) {
+        todoService.deleteTodo(id);
+    }
 }

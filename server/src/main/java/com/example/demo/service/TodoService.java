@@ -13,4 +13,10 @@ public interface TodoService {
 
     // Todo 등록
     public Todo registerTodo(TodoDTO params);
+
+    // Todo 수정
+    public Todo updateTodo(Long id, String newContent);
+
+    // Todo 삭제
+    public void deleteTodo(Long id);
 }

@@ -22,4 +22,8 @@ public class Todo extends TodoTimeEntity{
         this.id = id;
         this.content = content;
     }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }
