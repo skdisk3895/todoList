@@ -4,10 +4,9 @@ import com.example.demo.domain.entity.Todo;
 import com.example.demo.dto.TodoDTO;
 import com.example.demo.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 // 스프링 자체에서 view를 보여주지 않으므로 REST API용 controller로 선언
 @RestController
@@ -16,6 +15,12 @@ public class TodoListController {
 
     @Autowired
     private TodoService todoService;
+
+    // 클라이언트에서 모든 todoList 요청
+    @GetMapping("/findall")
+    public List<Todo> searchAllTodo() {
+        return todoService.searchAllTodo();
+    }
 
     // 클라이언트에서 todo 작성 요청
     @PostMapping("/create")

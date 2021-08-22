@@ -1,8 +1,14 @@
 package com.example.demo.domain.entity;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Todo extends TodoTimeEntity{
 
     @Id
@@ -16,21 +22,4 @@ public class Todo extends TodoTimeEntity{
         this.id = id;
         this.content = content;
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
 }
