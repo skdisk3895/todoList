@@ -1,14 +1,13 @@
 package com.example.demo.dto;
 
-import com.example.demo.domain.entity.TodoEntity;
+import com.example.demo.domain.entity.Todo;
+import com.example.demo.domain.entity.TodoTimeEntity;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class TodoDTO {
 
     /** 변호 (pk) **/
-
     private Long id;
 
     /** 내용 **/
@@ -39,7 +38,7 @@ public class TodoDTO {
         this.created = created;
     }
 
-    public TodoEntity toEntity() {
-        return new TodoEntity(null, content);
+    public Todo toEntity() {
+        return new Todo(null, content);
     }
 }

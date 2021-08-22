@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.entity.TodoEntity;
+import com.example.demo.domain.entity.Todo;
 import com.example.demo.dto.TodoDTO;
 import com.example.demo.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class TodoListController {
     private TodoService todoService;
 
     @PostMapping("/create")
-    public TodoEntity registerTodo(@RequestBody TodoDTO todoDTO) {
+    public Todo registerTodo(@RequestBody TodoDTO todoDTO) {
         return todoService.registerTodo(todoDTO);
     }
 }

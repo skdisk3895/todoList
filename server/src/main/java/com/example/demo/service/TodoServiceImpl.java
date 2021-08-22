@@ -1,9 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.entity.TodoEntity;
+import com.example.demo.domain.entity.Todo;
 import com.example.demo.domain.repository.TodoRepository;
 import com.example.demo.dto.TodoDTO;
-import com.example.demo.mapper.TodoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +13,7 @@ public class TodoServiceImpl implements TodoService {
     private TodoRepository todoRepository;
 
     @Override
-    public TodoEntity registerTodo(TodoDTO todoDTO) {
+    public Todo registerTodo(TodoDTO todoDTO) {
         return todoRepository.save(todoDTO.toEntity());
     }
 }

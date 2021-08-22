@@ -1,12 +1,9 @@
 package com.example.demo.domain.entity;
 
-import org.springframework.data.annotation.CreatedDate;
-
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
-public class TodoEntity {
+public class Todo extends TodoTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,10 +12,7 @@ public class TodoEntity {
     @Column
     private String content;
 
-    @CreatedDate
-    private LocalDateTime created;
-
-    public TodoEntity(Long id, String content) {
+    public Todo(Long id, String content) {
         this.id = id;
         this.content = content;
     }
@@ -38,4 +32,5 @@ public class TodoEntity {
     public void setContent(String content) {
         this.content = content;
     }
+
 }
