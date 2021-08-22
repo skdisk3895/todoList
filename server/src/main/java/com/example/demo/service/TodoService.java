@@ -7,5 +7,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface TodoService {
 
+    // Todo 등록
     public Todo registerTodo(TodoDTO params);
 }
