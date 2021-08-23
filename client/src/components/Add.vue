@@ -23,7 +23,8 @@ export default {
 #add {
   display: flex;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+  height: 10vh;
 }
 
 .add-input {

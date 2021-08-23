@@ -40,7 +40,7 @@ export default {
 
 <style>
 #list {
-  height: 350px;
+  height: 33vh;
   overflow-y: scroll;
 }
 

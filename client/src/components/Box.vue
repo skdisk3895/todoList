@@ -28,11 +28,12 @@ export default {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 650px;
-  height: 750px;
+  height: 80vh;
   background: white;
   padding: 20px 50px;
   border-radius: 10px;
   box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .box .title {

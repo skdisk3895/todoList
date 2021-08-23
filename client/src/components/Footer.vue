@@ -23,7 +23,7 @@ export default {
 <style>
 #footer {
   width: 550px;
-  height: 100px;
+  height: 5vh;
   position: absolute;
   bottom: 50px;
   display: flex;
@@ -43,5 +43,11 @@ export default {
   padding: 0 20px;
   color: white;
   font-size: 20px;
+}
+
+@media screen and (max-height: 650px){
+  #footer {
+    display: none;
+  }
 }
 </style>
