@@ -1,7 +1,7 @@
 <template>
   <div id="list">
     <div class="todo-list" v-for="(list, index) in $store.state.todoList" :key="index" @click="activeList(index)" :ref="'list-'+index" spellcheck="false">
-      <input type="text" v-model="$store.state.todoList[index].content" @keydown.enter="updateTodo(list.id)" :ref="'input_'+index" />
+      <input type="text" v-model="$store.state.todoList[index].content" @keydown.enter="updateTodo($event, list.id);" :ref="'input_'+index" />
       <button class="delete-btn">
         <i class="fas fa-trash-alt" @click.stop="deleteList(list.id)"></i>
       </button>
@@ -27,8 +27,10 @@ export default {
       this.removeActive();
       this.$refs[`list-${index}`][0].classList.add("active");
     },
-    updateTodo: function(id) {
+    updateTodo: function(event, id) {
       this.$store.dispatch("requestUpdateTodo", id)
+      this.removeActive();
+      event.target.blur();
     },
     deleteList: function (id) {
       this.$store.dispatch("requestDeleteTodo", id)

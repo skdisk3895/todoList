@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <h1 class="title">Todo App</h1>
+    <h1 class="title">Today's todo App</h1>
     <Add />
     <TodoList />
     <Footer />
