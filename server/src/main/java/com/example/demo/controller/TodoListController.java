@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 // 스프링 자체에서 view를 보여주지 않으므로 REST API용 controller로 선언
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/todo")
 public class TodoListController {
@@ -39,5 +40,11 @@ public class TodoListController {
     @DeleteMapping("/delete/{id}")
     public void deleteTodo(@PathVariable Long id) {
         todoService.deleteTodo(id);
+    }
+
+    // 모든 todo 삭제
+    @DeleteMapping("/deleteall")
+    public void deleteAllTodo() {
+        todoService.deleteAllTodo();
     }
 }

@@ -43,4 +43,10 @@ public class TodoServiceImpl implements TodoService {
         Todo todo = todoRepository.findById(id).get();
         todoRepository.delete(todo);
     }
+
+    // 모든 Todo 삭제
+    @Transactional
+    public void deleteAllTodo() {
+        todoRepository.deleteAll();
+    }
 }

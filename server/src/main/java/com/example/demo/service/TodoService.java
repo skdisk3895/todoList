@@ -19,4 +19,7 @@ public interface TodoService {
 
     // Todo 삭제
     public void deleteTodo(Long id);
+
+    // 모든 Todo 삭제
+    public void deleteAllTodo();
 }

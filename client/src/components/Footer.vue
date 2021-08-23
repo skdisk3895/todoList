@@ -1,7 +1,7 @@
 <template>
   <div id="footer">
     <span>You have pending {{ currentCount }} tasks</span>
-    <button @click="clearAll()">Clear All</button>
+    <button @click="deleteAll()">Clear All</button>
   </div>
 </template>
 
@@ -13,8 +13,8 @@ export default {
     }
   },
   methods: {
-    clearAll: function () {
-      this.$store.state.todoList = [];
+    deleteAll: function () {
+      this.$store.dispatch("requestDeleteAll")
     }
   }
 };

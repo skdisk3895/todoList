@@ -1,9 +1,9 @@
 <template>
   <div id="list">
     <div class="todo-list" v-for="(list, index) in $store.state.todoList" :key="index" @click="activeList(index)" :ref="'list-'+index" spellcheck="false">
-      <input type="text" v-model="$store.state.todoList[index]" :ref="'input_'+index" />
+      <input type="text" v-model="$store.state.todoList[index].content" @keydown.enter="updateTodo(list.id)" :ref="'input_'+index" />
       <button class="delete-btn">
-        <i class="fas fa-trash-alt" @click.stop="deleteList(index)"></i>
+        <i class="fas fa-trash-alt" @click.stop="deleteList(list.id)"></i>
       </button>
     </div>
   </div>
@@ -12,13 +12,11 @@
 <script>
 export default {
   created() {
-    this.addOriginList();
+    this.addOriginList()
   },
   methods: {
     addOriginList: function () {
-      for (let i = 0; i < 10; i++) {
-        this.$store.state.todoList.push(`todo ${i}`);
-      }
+      this.$store.dispatch("requestCurrentTodoList");
     },
     removeActive: function () {
       for (let i = 0; i < this.$store.state.todoList.length; i++) {
@@ -29,9 +27,11 @@ export default {
       this.removeActive();
       this.$refs[`list-${index}`][0].classList.add("active");
     },
-    deleteList: function (index) {
-      const idx = this.$store.state.todoList.indexOf(this.$refs[`input_${index}`][0].value);
-      this.$store.state.todoList.splice(idx, 1);
+    updateTodo: function(id) {
+      this.$store.dispatch("requestUpdateTodo", id)
+    },
+    deleteList: function (id) {
+      this.$store.dispatch("requestDeleteTodo", id)
       this.removeActive();
     }
   }

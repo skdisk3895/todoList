@@ -1,6 +1,6 @@
 <template>
   <div id="add">
-    <input type="text" class="add-input" placeholder="Add your new todo" ref="todo" />
+    <input type="text" class="add-input" placeholder="Add your new todo" @keydown.enter="addList()" ref="todo" />
     <button class="add-btn" @click="addList()">
       <i class="fas fa-plus"></i>
     </button>
@@ -12,7 +12,7 @@ export default {
   methods: {
     addList: function() {
       if (this.$refs["todo"].value === "") return;
-      this.$store.state.todoList.push(this.$refs["todo"].value);
+      this.$store.dispatch("requestRegisterTodo", this.$refs["todo"].value);
       this.$refs["todo"].value = "";
     }
   }
